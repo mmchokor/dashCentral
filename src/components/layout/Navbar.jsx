@@ -2,18 +2,18 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
    return (
-      <nav class='bg-gray-800 p-4'>
-         <div class='flex items-center justify-between mx-1'>
-            <div class='flex items-center'>
-               <p class='text-white font-bold text-xl'>
+      <nav className='bg-gray-800 p-4'>
+         <div className='flex items-center justify-between mx-1'>
+            <div className='flex items-center'>
+               <p className='text-white font-bold text-xl'>
                   Dash Central
                </p>
             </div>
-            <div class='flex items-center'>
-               <Link to="/" class='text-white mx-4'>
+            <div className='flex items-center'>
+               <Link to="/" className='text-white mx-4'>
                   Dashboard
                </Link>
-               <Link to="/register" class='text-white'>
+               <Link to="/register" className='text-white'>
                   Register
                </Link>
             </div>
