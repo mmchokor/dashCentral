@@ -11,47 +11,65 @@ const Register = () => {
    const [formSubmitted, setFormSubmitted] = useState(false)
 
    const formValidation = () => {
+      // 1. Create errors object and set it to an empty object
       let errors = {}
 
-      // Validate email
+      // 2. Validate email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
       if (!formData.email) {
+         // 3. Set error message
          errors.email = 'Email is required'
       } else if (!emailRegex.test(formData.email)) {
+         // 4. Set error message
          errors.email = 'Invalid email address'
       }
 
-      // Validate name
+      // 5. Validate name
       if (!formData.name) {
+         // 6. Set error message
          errors.name = 'Name is required'
       }
 
-      // Validate password
+      // 7. Validate password
       const passwordRegex =
          /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,}$/
       if (!formData.password) {
+         // 8. Set error message
          errors.password = 'Password is required'
       } else if (!passwordRegex.test(formData.password)) {
+         // 9. Set error message
          errors.password =
             'Password must contain at least 7 characters with 1 capital letter, one number, and one special character'
       }
 
-      // Validate confirm password
+      // 10. Validate confirm password
       if (!formData.confirmPassword) {
+         // 11. Set error message
          errors.confirmPassword = 'Confirm Password is required'
       } else if (formData.password !== formData.confirmPassword) {
-         errors.confirmPassword = 'Passwords don\'t match'
+         // 12. Set error message
+         errors.confirmPassword = "Passwords don't match"
       }
 
+      // 13. Set errors state
       setErrors(errors)
+      // 14. Return true if there are no errors, otherwise return false
       return Object.keys(errors).length === 0
    }
 
    const handleSubmit = (event) => {
+      // Prevent the default behavior of the form
       event.preventDefault()
+
+      // Validate the form
       const isValid = formValidation()
+
+      // Check if the form is valid
       if (isValid) {
+         // Add the form data to the console if it's valid
          console.log('Form data:', formData)
+
+         // Update the state to indicate that the form was submitted
          setFormSubmitted(true)
       }
    }
