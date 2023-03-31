@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Product from '../components/Product'
 
 const Dashboard = () => {
    const [products, setProducts] = useState([])
@@ -43,29 +44,8 @@ const Dashboard = () => {
          <div className='grid grid-cols-1 mx-2 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
             {/* // map through the products array */}
             {products.map((product) => (
-               // key is needed for react to uniquely identify each component
-               <div
-                  key={product.id}
-                  className='bg-white shadow-md rounded-lg text-center min-h-[800px]'
-               >
-                  {/* // image of the product */}
-                  <img
-                     className='mx-auto mb-4 mt-1 h-[74%] w-full object-contain'
-                     src={product.image}
-                     alt={product.title}
-                  />
-                  {/* // product details */}
-                  <div className='bg-gray-800 h-[24%] p-3'>
-                     <h2 className='text-lg font-bold text-white'>
-                        {product.title}
-                     </h2>
-                     <p className='text-gray-300'>{product.category}</p>
-                     <p className='text-gray-400 font-bold'>${product.price}</p>
-                     <p className='text-gray-400 font-bold'>
-                        ✬ {product.rating.count} | Count: {product.rating.rate}
-                     </p>
-                  </div>
-               </div>
+               <Product product={product} key={product.id} />
+               // console.log(product)
             ))}
          </div>
       </div>
